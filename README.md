@@ -1,2 +1,3 @@
 # csharp_lessons-asp_notebook
-C# lessons - program notebook
+
+This is just home task work for people studing the c# with me.

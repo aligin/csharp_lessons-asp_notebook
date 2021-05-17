@@ -1,0 +1,9 @@
+﻿namespace AspNotebook.ViewModels
+{
+    public class PersonViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Telephone { get; set; }
+    }
+}
