@@ -38,7 +38,7 @@ namespace AspNotebook.Migrations
                     b.HasData(
                         new
                         {
-                            Id = -1,
+                            Id = 1,
                             Name = "Ляксандр",
                             Telephone = "555-55-55"
                         });

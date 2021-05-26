@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PersonViewModel>
+@model PersonViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,15 +15,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var person in Model)
-            {
             <tr>
-                <td>@person.Name</td>
-                <td>@person.Telephone</td>
-                <td><a href="/person/edit/@person.Id" class="btn btn-primary">Edit</a>
-                <a href="/person/delete/@person.Id" class="btn btn-danger">Delete</a></td>
+                <td>@Model.Name</td>
+                <td>@Model.Telephone</td>
             </tr>
-            }
         </tbody>
     </table>
 </div>

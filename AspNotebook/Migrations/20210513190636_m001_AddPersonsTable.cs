@@ -23,7 +23,7 @@ namespace AspNotebook.Migrations
             migrationBuilder.InsertData(
                 table: "Persons",
                 columns: new[] { "Id", "Name", "Telephone" },
-                values: new object[] { -1, "Ляксандр", "555-55-55" });
+                values: new object[] { 1, "Ляксандр", "555-55-55" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
