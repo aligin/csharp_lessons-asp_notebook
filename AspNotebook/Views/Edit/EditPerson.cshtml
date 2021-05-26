@@ -5,20 +5,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">My Coolest Notebook</h1>
-    <table class="table"> 
-        <thead class="thead-light">
-            <tr>
-                <th>Имя</th>
-                <th>Телефон</th>
-                <th>Действия</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Name</td>
-                <td>@Model.Telephone</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1 class="display-4">Редактирование контакта</h1>
+    <div class="form-group col-md-4">
+    <form align="left" method="post">
+        <div class="form-group>
+            <label for="personInputName">Имя</label>
+            <input type="text" class="form-control" id="personInputName" value="@Model.Name" name="personName">
+        </div>
+        <div class="form-group>
+            <label for="personInputTelephone">Телефон</label>
+            <input type="tel" class="form-control" id="personInputTelephone" value="@Model.Telephone" name="personTelephone">
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+    <div>
 </div>

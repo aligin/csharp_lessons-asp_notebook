@@ -30,7 +30,7 @@ namespace AspNotebook.Configuration
 
                 entity.HasData(new List<Person>()
                 {
-                    new Person(){ Name = "Ляксандр", Telephone = "555-55-55" }
+                    new Person(){ Id = 1, Name = "Ляксандр", Telephone = "555-55-55" }
                 });
             });
         }
