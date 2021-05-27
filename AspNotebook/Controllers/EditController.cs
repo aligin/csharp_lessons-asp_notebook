@@ -10,7 +10,7 @@ using AspNotebook.Models;
 
 namespace AspNotebook.Controllers
 {
-    [Route("/person/edit/{personId}")]
+    [Route("/person/edit/{Id}")]
     public class EditController : Controller
     {
 
@@ -25,22 +25,21 @@ namespace AspNotebook.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditPerson(int personId)
+        public IActionResult EditPerson(int Id)
         {
-            var person = _context.Persons.Where(x => x.Id == personId).First();
+            var person = _context.Persons.Where(x => x.Id == Id).First();
             var model = _mapper.Map<PersonViewModel>(person);
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult EditPerson(int personId, string personName, string personTelephone)
+        public IActionResult EditPerson([Bind("Id,Name,Telephone")] Person person)
         {
-            var person = new Person{Id = personId, Name = personName, Telephone = personTelephone};
             if (ModelState.IsValid)
             {
                 _context.Update(person);
-                _context.SaveChangesAsync();
-    }
+                _context.SaveChanges();
+            }
             var model = _mapper.Map<PersonViewModel>(person);
             return View(model);
         }
