@@ -1,36 +1,31 @@
 using AspNotebook.Configuration;
-using AspNotebook.ViewModels;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using AspNotebook.Models;
 
 namespace AspNotebook.Controllers
 {
-    [Route("/person/delete/{Id}")]
+    [Route("/person/delete/{id}")]
     public class DeleteController : Controller
     {
-
-        readonly ILogger<DeleteController> _logger;
         readonly NotebookContext _context;
-        readonly IMapper _mapper;
-        public DeleteController(ILogger<DeleteController> logger, NotebookContext context, IMapper mapper)
+
+        public DeleteController(NotebookContext context)
         {
-            _logger = logger;
             _context = context;
-            _mapper = mapper;
         }
 
         [HttpPost]
-        public IActionResult DeletePerson(int Id)
+        public IActionResult DeletePerson(int id)
         {
-            var person = _context.Persons.Where(x => x.Id == Id).First();
-            _context.Persons.Remove(person);
-            _context.SaveChanges();
-            return Redirect("/");
+            var person = _context.Persons.FirstOrDefault(x => x.Id == id);
+
+            if (person is not null)
+            {
+                _context.Persons.Remove(person);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }
 }

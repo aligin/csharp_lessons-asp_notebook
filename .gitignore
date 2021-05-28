@@ -12,7 +12,6 @@
 **/aspnet_consul_config.json
 
 # compiled output
-**/dist/
 **/dist-server/
 **/tmp/
 **/out-tsc/

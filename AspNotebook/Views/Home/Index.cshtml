@@ -6,7 +6,20 @@
 
 <div class="text-center">
     <h1 class="display-4">My Coolest Notebook</h1>
-    <table class="table"> 
+    @if (ViewBag.Sucess == true)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+    else if (ViewBag.Error == true)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+    <a class="btn btn-primary" asp-action="CreatePerson" asp-controller="Create">Create</a>
+    <table class="table">
         <thead class="thead-light">
             <tr>
                 <th>Имя</th>
@@ -17,14 +30,14 @@
         <tbody>
             @foreach (var person in Model)
             {
-            <tr>
-                <td>@person.Name</td>
-                <td>@person.Telephone</td>
-                <td>
-                    <a href="/person/edit/@person.Id" class="btn btn-primary">Edit</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-name="@person.Name" data-id="@person.Id">Delete</button>
-                </td>
-            </tr>
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.Telephone</td>
+                    <td>
+                        <a href="/person/edit/@person.Id" class="btn btn-primary">Edit</a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-name="@person.Name" data-id="@person.Id">Delete</button>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
