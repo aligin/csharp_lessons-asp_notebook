@@ -35,11 +35,19 @@ namespace AspNotebook.Controllers
         [HttpPost]
         public IActionResult EditPerson([Bind("Id,Name,Telephone")] Person person)
         {
-            if (ModelState.IsValid)
-            {
+            try {
                 _context.Update(person);
                 _context.SaveChanges();
+                
+                ViewBag.Sucess = true;
+                ViewBag.Message = "Contact edited";
+
             }
+            catch (System.Exception ex) {
+                ViewBag.Error = true;
+                ViewBag.Message = ex.Message;
+            }
+
             var model = _mapper.Map<PersonViewModel>(person);
             return View(model);
         }

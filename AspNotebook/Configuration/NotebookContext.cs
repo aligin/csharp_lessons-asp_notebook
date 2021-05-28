@@ -19,6 +19,9 @@ namespace AspNotebook.Configuration
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id)
                     .ValueGeneratedOnAdd();
+                
+                entity.HasIndex(x => x.Name)
+                    .IsUnique();
 
                 entity
                     .Property(x => x.Name)

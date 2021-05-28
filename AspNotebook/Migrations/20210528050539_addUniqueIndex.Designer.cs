@@ -2,14 +2,16 @@
 using AspNotebook.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspNotebook.Migrations
 {
     [DbContext(typeof(NotebookContext))]
-    partial class NotebookContextModelSnapshot : ModelSnapshot
+    [Migration("20210528050539_addUniqueIndex")]
+    partial class addUniqueIndex
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
